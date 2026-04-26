@@ -39,7 +39,7 @@ public class POSdraft extends JFrame {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        // Build different screens
+        // Different screens
         mainPanel.add(createWelcomeScreen(), "Welcome");
         mainPanel.add(createCategoryScreen(), "Categories");
 
