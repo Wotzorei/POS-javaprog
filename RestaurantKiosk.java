@@ -837,12 +837,16 @@ public class RestaurantKiosk extends JFrame {
                 }
             });
             delVoucher.addActionListener(e -> {
-                int row = voucherTable.getSelectedRow();
-                if (row >= 0) {
-                    String code = (String) voucherTableModel.getValueAt(row, 0);
-                    VoucherDAO.deleteVoucher(code);
-                    loadVoucherTable();
+                int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this voucher?", "Voucher Deletion", JOptionPane.YES_NO_OPTION);
+                if(choice == JOptionPane.YES_OPTION){
+                    int row = voucherTable.getSelectedRow();
+                    if (row >= 0) {
+                        String code = (String) voucherTableModel.getValueAt(row, 0);
+                        VoucherDAO.deleteVoucher(code);
+                        loadVoucherTable();
+                    }
                 }
+                
             });
             btnPanel.add(addVoucher);
             btnPanel.add(delVoucher);
